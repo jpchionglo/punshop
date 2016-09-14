@@ -1,0 +1,45 @@
+<!-- Reference: https://github.com/ashleydw/lightbox/ -->
+<script src="//rawgithub.com/ashleydw/lightbox/master/dist/ekko-lightbox.js"></script>
+
+
+
+<div class="container">
+  <div class="jumbotron" >
+  	<div class="whitetrans">
+	    <h1>RICK HARRISON'S PUN SHOP</h1> 
+	    <p>Hi, I'm Rick Harrison, and this is my pun shop. I work here with my old man and my son, "Big Hoss." Everything in here has a story and a price. One thing I've learned after 21 years - you never know who is going to visit this website.</p> 
+    </div>
+  </div>
+  
+</div>
+
+
+</section>
+</div>
+
+<div class="page-header">
+  <center><h1>List of Items</h1></center>
+</div>
+
+<% @item.each do |pointer| %>
+  <%= link_to item_path(pointer.id) do %>
+   <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="<%= pointer.image %>" alt="toothbrush" width="300px" height="300px" >
+      <div class="caption">
+        <center>  
+        <h3><%= pointer.name %></h3>
+        <h4>$<%= pointer.price %></h4>
+        <p><%= pointer.description %></p>
+    		<div class="btn btn-success"> BUY </div>
+    		<a class="btn btn-primary" href="<%= item_url(pointer.id) %>">Show</a>
+    		<a class="btn btn-warning" href="<%= edit_item_url(pointer.id) %>">Edit</a>
+          	<div class="btn btn-danger">  <%= link_to "Delete", item_url(pointer.id), :method => :delete, :data => {:confirm => "Are you sure?" } %> </div>
+           <p>Created <%= pointer.created_at.strftime("%b %e, %l:%M %p") %></p> 
+           <p>Last edited<%= pointer.updated_at.strftime("%b %e, %l:%M %p") %></p>
+       </center>
+  <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

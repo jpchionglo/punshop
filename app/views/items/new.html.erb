@@ -1,0 +1,33 @@
+<center>
+    <h1>Create new item</h1>
+    
+    <%= form_tag(items_path) do %>
+    
+        <div class="block">
+            <label for="name"> Item Name:
+                <input type="text" id="name" name="name" placeholder="Name" value=<%= @new.name%>>
+            </label> <br> <br>
+        </div>
+        
+        <div class="block">
+            <label for="price"> Price:
+                <input type="text" id="price" name="price" placeholder="Price" value=<%= @new.price%>>
+            </label> <br> <br>
+        </div>
+        
+        <div class="block">
+            <label for="image"> Image:
+                <input type="text" id="image" name="image" placeholder="Image URL" value=<%=@new.image%>>
+            </label> <br> <br>
+        </div>
+        
+        <div class="block">
+            <label for="description"> Description:
+                <input type="text" id="description" name="description" placeholder="Description" value=<%=@new.description%>>
+            </label> <br> <br>
+        </div>
+        
+        <input type="submit">
+    <% end %>
+</center>
+

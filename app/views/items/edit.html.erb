@@ -1,0 +1,37 @@
+<center>
+    <div class="page-header">
+      <h1>Edit Item #<%= @item.id %></h1>
+    </div>
+    
+    <%= form_tag(item_path(@item.id), :method => :patch)  do  %>
+       
+        <div class="block">
+            <label for="name"> Item Name:
+                <input type="text" id="name" name="name" placeholder="Name" value=<%= @item.name%>>
+            </label> <br> <br>
+        </div>
+        
+        <div class="block">
+            <label for="price"> Price:
+                <input type="text" id="price" name="price" placeholder="Price" value=<%= @item.price%>>
+            </label> <br> <br>
+        </div>
+        
+        <div class="block">
+            <label for="image"> Image
+                <input type="text" id="image" name="image" placeholder="Image URL" value=<%=@item.image%>>
+            </label> <br> <br>
+        </div>
+        
+        <div class="block">
+            <label for="description"> Description:
+                <input type="text" id="description" name="description" placeholder="Picture URL" value=<%=@item.description%>>
+            </label> <br> <br>
+        </div>
+        
+          <a class="btn btn-primary" href="/items"> Back   </a>
+
+        <input type="submit"> <br>
+        
+    <% end %>
+</center>
